@@ -31,6 +31,8 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Gii', 'url'=>array('/gii')),
+				array('label'=>'Member', 'url'=>array('/Member')),
+				array('label'=>'Account', 'url'=>array('/Account')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
