@@ -1,39 +1,17 @@
 <?php
-	/* @var $this MemberController */
+$this->breadcrumbs=array(
+	'Accounts',
+);
 
-	$this->breadcrumbs=array(
-		'Member',
-	);
+$this->menu=array(
+	array('label'=>'Create Account','url'=>array('create')),
+	array('label'=>'Manage Account','url'=>array('admin')),
+);
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
 
+<h1>Accounts</h1>
 
-<?php
-	$this->widget('zii.widgets.grid.CGridView', array(
-	    'id' => 'grid_1',                
-	    'dataProvider' => $dataProvider, 
-	    'enablePagination' => true,      
-	    'columns' => array(              
-	        array(
-	            'name' => 'id',
-	            'header' => 'ID',
-	        ),
-	        array(
-	            'name' => 'username',
-	            'header' => 'Username',
-	        ),
-	        array(
-	            'name' => 'password',
-	            'header' => 'Password',
-	        ),
-	        array(
-	            'name' => 'myprofile.firstName',
-	            'header' => 'Firstname',
-	        ),
-	        array(
-	            'name' => 'myprofile.lastName',
-	            'header' => 'Lastname',
-	        ),
-	    ),
-	));
-?>
+<?php $this->widget('bootstrap.widgets.TbListView',array(
+	'dataProvider'=>$dataProvider,
+	'itemView'=>'_view',
+)); ?>

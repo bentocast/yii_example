@@ -3,14 +3,21 @@
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
+// Define a path alias for the Bootstrap extension as it's used internally.
+// In this example we assume that you unzipped the extension under protected/extensions.
+Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
+
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Liyuan Application',
+	'name'=>'Liyuan Member',
+
+	// Theme
+	'theme'=>'bootstrap',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log', 'bootstrap'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -26,8 +33,10 @@ return array(
 			'password'=>'12345',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths'=>array(
+	            'bootstrap.gii'
+	        ),
 		),
-		
 	),
 
 	// application components
@@ -79,6 +88,9 @@ return array(
 				*/
 			),
 		),
+		'bootstrap'=>array(
+            'class'=>'bootstrap.components.Bootstrap',
+        ),
 	),
 
 	// application-level parameters that can be accessed
